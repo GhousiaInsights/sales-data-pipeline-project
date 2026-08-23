@@ -36,10 +36,20 @@ df['order_year'] = df['order_date'].dt.year
 df['order_month'] = df['order_date'].dt.month
 
 # Save cleaned data
-df.to_csv(
-    r"C:\Users\sghou\Desktop\sales-data-pipeline-project\data\processed\clean_sales_data.csv",
-    index=False
+import os
+
+# Project folder
+project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Save cleaned data
+output_path = os.path.join(
+    project_dir,
+    "data",
+    "processed",
+    "clean_sales_data.csv"
 )
+
+df.to_csv(output_path, index=False)
 
 print("Data cleaned successfully!")
 print("Clean file saved in processed folder.")
