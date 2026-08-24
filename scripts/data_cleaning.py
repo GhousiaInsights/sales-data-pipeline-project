@@ -1,7 +1,21 @@
 import pandas as pd
+import os
 
-# Load CSV file
-df = pd.read_csv(r"C:\Users\sghou\Desktop\sales-data-pipeline-project\data\raw\sales_data.csv", encoding='latin1')
+# Project folder
+project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Load raw sales data
+input_path = os.path.join(
+    project_dir,
+    "data",
+    "raw",
+    "sales_data.csv"
+)
+
+df = pd.read_csv(
+    input_path,
+    encoding='latin1'
+)
 
 # Show first 5 rows
 print(df.head())
@@ -34,12 +48,6 @@ df['delivery_days'] = (
 
 df['order_year'] = df['order_date'].dt.year
 df['order_month'] = df['order_date'].dt.month
-
-# Save cleaned data
-import os
-
-# Project folder
-project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Save cleaned data
 output_path = os.path.join(
