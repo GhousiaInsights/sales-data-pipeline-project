@@ -299,6 +299,8 @@ The MySQL warehouse also includes primary keys and indexes for important lookup 
 The Power BI dashboard provides interactive sales analysis using the MySQL warehouse.
 
 
+![Sales Performance Dashboard](screenshots/sales_dashboard.png)
+
 
 \### KPI Metrics
 
